@@ -1,0 +1,268 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all .3s;
+    font-family: Kanit;
+    outline: none;
+    border: none;
+    text-decoration: none;
+}
+
+html, body {
+    width: 100%;
+    height: 100vh;
+}
+
+body {
+    background-color:rgb(235, 235, 235);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: auto;
+}
+
+.container-dentro {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+header, main, footer {
+    background-color: rgb(255, 255, 255);
+    margin: 10px 25px 10px 25px;
+    box-shadow: 
+        5px 5px 10px rgba(0, 0, 0, 0.1),
+        10px 10px 20px rgba(0, 0, 0, 0.1),
+        15px 15px 30px rgba(0, 0, 0, 0.1),
+        20px 20px 40px rgba(0, 0, 0, 0.1),
+        25px 25px 50px rgba(0, 0, 0, 0.1);
+}
+
+main > .container-dentro{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0 10px 0;
+}
+
+.up, .down {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.up * {
+    margin: 0 3px 0 3px;
+}
+
+.up {
+    margin-bottom: 10px;
+}
+
+.logo, .buscador, .lupa {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo, .lupa {
+    width: 20px;
+}
+
+.buscador .input {
+    height: 100%;
+}
+
+.buscador .input input {
+    height: 100%;
+    border: none;
+    background-color: rgb(235, 235, 235);
+    border-radius: 10px;
+    padding: 10px 20px;
+}
+
+.menu-desplegable {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu-desplegable button {
+    width: 30%;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+header img {
+    width: 100%;
+    height: 20px;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60px;
+}
+
+.producto-foto {
+    min-height: 300px;
+    max-height: 300px;
+    max-width: 100%;
+}
+
+.producto {
+    border: 1px solid black;
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.descripcion {
+    max-height: 100px;
+    overflow-y: auto;
+}
+
+.titulo, .precio {
+    text-align: center;
+    padding: 10px;
+}
+
+.producto:hover {
+    cursor: pointer;
+}
+
+.descripcion {
+    padding: 10px;
+}
+
+.titulo {
+    font-size: 25px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.precio {
+    font-size: 25px;
+}
+
+.producto:hover {
+    background-color: rgb(235, 235, 235);
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.whatsapp {
+    color: white;
+    padding: 10px;
+    margin: 10px;
+    text-decoration: none;
+}
+
+.contacto {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(0, 163, 0);
+    margin: 20px;
+    border-radius: 10px;
+}
+
+.contacto img {
+    max-width: 90px;
+}
+
+.carrousel-botones {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.carrousel-botones button {
+    width: 45%;
+    border: none;
+    background-color:rgb(196, 196, 196);
+    border-radius: 5px;
+    color: white;
+    font-size: 30px;
+}
+
+@media only screen and (min-width: 768px) {
+    main div {
+        justify-content: center;
+        max-width: auto;
+        grid-template-columns: repeat(2, 45%);
+    }
+
+    .container {
+        width: 70%;
+    }
+
+    .producto {
+        font-size: 12px;
+    }
+
+    .contacto img {
+        width: 50px;
+    }
+
+    .producto-foto {
+        min-width: 100px;
+        max-width: 100px;
+        min-height: 100px;
+        max-height: 100px;
+    }
+
+    main > .container-dentro{
+        justify-content: space-between;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    main div {
+        max-width: 100%;
+        grid-template-columns: repeat(3, 30%);
+    }
+
+    .producto-foto {
+        min-width: 100px;
+        max-width: 100px;
+        min-height: 100px;
+        max-height: 100px;
+    } 
+}
+
+@media only screen and (min-width: 1500px) {
+    main div {
+        max-width: 100%;
+    }
+
+    .producto-foto {
+        min-width: 100px;
+        max-width: 100px;
+        min-height: 100px;
+        max-height: 100px;
+    }
+}
