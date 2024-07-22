@@ -127,7 +127,7 @@
                         }
                     }
             
-                    img.src = "./productos/producto_" + productoActual + "_" +siguienteFotoFunction(fotoNumero) + "." + extension; 
+                    img.src = "https://raw.githubusercontent.com/Flinch101/base-de-datos/main/productos/producto_" + productoActual + "_" +siguienteFotoFunction(fotoNumero) + "." + extension; 
                 });
             });
             
@@ -151,7 +151,7 @@
                         }
                     }
             
-                    img.src = "./productos/producto_" + productoActual + "_" +siguienteFotoFunction(fotoNumero) + "." + extension; 
+                    img.src = "https://raw.githubusercontent.com/Flinch101/base-de-datos/main/productos/producto_" + productoActual + "_" +siguienteFotoFunction(fotoNumero) + "." + extension; 
                 });
             });
             
