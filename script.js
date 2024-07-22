@@ -46,8 +46,10 @@
                     divCarrousel.className = 'carrousel-botones';
                         let btIzq = document.createElement('button');
                         btIzq.id = 'carrousel-izq';
+                        btIzq.innerHTML = '←'
                         let btDer = document.createElement('button');
                         btDer.id = 'carrousel-der';
+                        btDer.innerHTML = '→'
                     let pDesc = document.createElement('p');
                     pDesc.className = 'descripcion';
                     pDesc.innerHTML = desc;
@@ -118,7 +120,7 @@
             
                     let siguienteFotoFunction = (foto) => {
                         if(foto - 1 == 0) {
-                            return 3;
+                            return 1;
                         }
                         else {
                             return foto - 1;
