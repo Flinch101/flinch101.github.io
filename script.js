@@ -236,10 +236,10 @@
                             buttonTodos.style.backgroundColor = 'rgb(155, 245, 143)';
             
                             for(let i=0; i<productosUsados.length; i++){
-                                productosUsados[i].style.display = 'block';
+                                productosUsados[i].style.display = 'flex';
                             }
                             for(let i=0; i<productosNuevos.length; i++){
-                                productosNuevos[i].style.display = 'block';
+                                productosNuevos[i].style.display = 'flex';
                             }
                             lastCategoria = 'todos';
                             break;
