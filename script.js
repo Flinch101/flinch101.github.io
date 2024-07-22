@@ -50,9 +50,11 @@
                         let btDer = document.createElement('button');
                         btDer.id = 'carrousel-der';
                         btDer.innerHTML = '→'
-                    let pDesc = document.createElement('p');
-                    pDesc.className = 'descripcion';
-                    pDesc.innerHTML = desc;
+                    let divDesc = document.createElement('div');
+                    divDesc.className = 'desc';
+                        let pDesc = document.createElement('p');
+                        pDesc.className = 'descripcion';
+                        pDesc.innerHTML = desc;
                     let pPrecio = document.createElement('p');
                     pPrecio.className = 'precio';
                     pPrecio.innerHTML = precio;
@@ -75,7 +77,8 @@
                     divCarrousel.appendChild(btDer);
                     divProducto.appendChild(divCarrousel);
 
-                    divProducto.appendChild(pDesc);
+                    divDesc.appendChild(pDesc);
+                    divProducto.appendChild(divDesc)
                     divProducto.appendChild(pPrecio);
 
                     divContacto.appendChild(a);
@@ -100,7 +103,8 @@
             var buttonDeslizarDer = document.querySelectorAll('#carrousel-der');
             var productosFoto = {
                 1: 4,
-                2: 1
+                2: 1,
+                3: 1
             };
             
             document.querySelectorAll('.producto').forEach(producto => {
