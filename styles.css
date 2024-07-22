@@ -45,17 +45,19 @@ header, main, footer {
         25px 25px 50px rgba(0, 0, 0, 0.1);
 }
 
+header {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0 10px 0;
+}
+
 main > .container-dentro{
     display: grid;
     justify-content: center;
     align-items: center;
     gap: 20px;
-}
-
-header {
-    display: flex;
-    flex-direction: column;
-    padding: 10px 0 10px 0;
+    max-width: auto;
+    grid-template-columns: repeat(1, 100%);
 }
 
 .up, .down {
@@ -137,11 +139,23 @@ footer {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    width: 100%;
+
+    min-height: 600px;
+    flex-grow: 2;
+}
+
+.desc {
+    width: 100%;
+    max-width: 300px;
+    max-height: 100px;
+    padding: 10px;
 }
 
 .descripcion {
     max-width: 300px;
     max-height: 100px;
+    min-height: 100px;
     overflow-y: auto;
 }
 
@@ -150,11 +164,8 @@ footer {
     padding: 10px;
 }
 
-.descripcion {
-    padding: 10px;
-}
-
 .titulo {
+    min-height: 100px;
     font-size: 25px;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -209,11 +220,19 @@ button:hover {
 }
 
 @media only screen and (min-width: 768px) {
-    main div {
-        justify-content: center;
-        max-width: auto;
+    main > .container-dentro{
         grid-template-columns: repeat(2, 45%);
+        align-items: self-start;
     }
+
+    .producto {
+        border: 1px solid black;
+        margin: 20px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }    
 
     .container {
         width: 70%;
@@ -245,6 +264,11 @@ button:hover {
         grid-template-columns: repeat(3, 30%);
     }
 
+    .producto {
+        width: 100%;
+        min-height: 600px;
+    }
+
     .producto-foto {
         min-width: 100px;
         max-width: 100px;
@@ -254,7 +278,7 @@ button:hover {
 }
 
 @media only screen and (min-width: 1500px) {
-    main div {
+    main > .container-dentro {
         max-width: 100%;
         grid-template-columns: repeat(4, 20%);
     }
