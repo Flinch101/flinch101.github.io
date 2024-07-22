@@ -140,6 +140,7 @@ footer {
 }
 
 .descripcion {
+    max-width: 300px;
     max-height: 100px;
     overflow-y: auto;
 }
