@@ -7,13 +7,6 @@
     --color-boton-blanco: rgb(196, 196, 196);
 }
 
-.todo {
-    width: 100vw;
-    height: 100vh;
-    position: absolute;
-    z-index: 1000;
-}
-
 .sinOverflow {
     overflow: hidden;
 }
@@ -30,7 +23,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* transition: all .2s; */
     font-family: Kanit;
     outline: none;
     border: none;
@@ -39,6 +31,15 @@
     outline: none;
     -ms-touch-action: manipulation;
     touch-action: manipulation;
+}
+
+.todo {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
 }
 
 html, body {
