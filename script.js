@@ -115,6 +115,9 @@ var save = localStorage.getItem('theme');
                 document.querySelectorAll('p, input, button, i.icon-search').forEach(element => {
                     element.classList.toggle('dark-text');
                 });
+                document.querySelectorAll('i.icon-right-open, i.icon-left-open').forEach(element => {
+                    element.classList.toggle('texto-negro');
+                });
                 document.querySelector('input').classList.toggle('dark-input');
                 document.querySelector('input').classList.toggle('dark-pebe');
             }
@@ -141,7 +144,7 @@ var save = localStorage.getItem('theme');
                         buttonTheme.className = 'icon-toggle-on';
                         buttonTheme.classList.toggle('dark-text');
                         document.querySelectorAll('.logo img').forEach(elemento => {
-                            elemento.src = 'https://raw.githubusercontent.com/Flinch101/base-de-datos/main/iconos/icono-white.png';
+                            elemento.src = 'https://raw.githubusercontent.com/Flinch101/base-de-datos/main/iconos/icono-dark.png';
                         });
                         toDark();
                     }
