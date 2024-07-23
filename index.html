@@ -14,13 +14,18 @@
 <body>
     <div class="todo"></div>
     <script>
-        if(localStorage.getItem('theme') == 'dark'){document.querySelector('.todo').classList.toggle('dark');}
-        else {document.querySelector('.todo').style.backgroundColor = 'rgb(235,235,235)'}
+        if(localStorage.getItem('theme') == 'dark'){
+            document.querySelector('.todo').classList.toggle('dark');
+        }
+        else {
+            document.querySelector('.todo').classList.toggle('light');
+        }
         document.querySelector('body').classList.toggle('sinOverflow');
         setTimeout(() => {
                 document.querySelector('.todo').style.display = 'none';
+                // document.querySelector('.todo').classList.remove('dark');
                 document.querySelector('body').classList.toggle('sinOverflow');
-            }, 1000);
+            }, 500);
     </script>
     <div class="container">
         <div class="ad">
@@ -61,17 +66,6 @@
                 <p>Hecho por Franco Caviglia 2024 - Zona Buenos Aires, La Matanza - Envíos a todo el país.</p>
             </div>
         </footer>
-        <!-- <script>
-            // THEME
-            {
-                let save = localStorage.getItem('theme');
-                function toDark(){
-                    document.querySelector('body').classList.toggle('dark');
-                    document.querySelector('header, main, footer').classList.toggle('dark-section');
-                }
-                if(save !== null && save == 'dark'){toDark()};
-            }
-        </script> -->
     </div>
     <script src="script.js"></script>
 </body>
