@@ -43,7 +43,7 @@ var save = localStorage.getItem('theme');
                 let divProducto = document.createElement('div');
                 divProducto.className = 'producto ' + (i + 1);
                 divProducto.id = 'producto' + nuevoUsado
-                    let pTitulo = document.createElement('p');
+                    let pTitulo = document.createElement('h2');
                     pTitulo.className = 'titulo';
                     pTitulo.innerHTML = nombre;
                     let imgProducto = document.createElement('img');
@@ -536,8 +536,8 @@ var save = localStorage.getItem('theme');
                     img.style.transform = `
                         perspective(1000px)
                         scale(1.2)
-                        rotateY(${(positionX/10)}deg)
-                        rotateX(${(-positionY/10)}deg)
+                        rotateY(${((positionX/10) * 2)}deg)
+                        rotateX(${((-positionY/10) * 2)}deg)
                     `;
 
                     document.querySelector('.todo').style.display = 'block';
