@@ -254,8 +254,11 @@ footer {
 
 /* DARK ------------------------------------------------------- */
 .theme {
-    cursor: pointer;
     font-size: 20px;
+}
+
+.theme:hover {
+    cursor: pointer;
 }
 
 .dark {
