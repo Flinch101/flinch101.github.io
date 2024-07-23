@@ -4,10 +4,52 @@
     <title>Venta de Articulos</title>
 </head>
 <body>
-    <!-- SCRIPT ---------------------------------- -->
+    <!-- TODO ESTILO -->
+    <style>
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .icon-spin6 {
+            display: inline-block;
+            animation: spin 2s linear infinite;
+        }
+
+        .todo {
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            font-size: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+    </style>
+    <!-- TODO ---------------------------------- -->
+    <div class="todo">
+        <p>Cargando...</p>
+        <i class="icon-spin6"></i>
+    </div>
+    <!-- SCRIPT JS -->
     <script>
-        const urlScript = `?${new Date().getTime()}`;
-        import('./script.js' + urlScript);
+        // TODO
+        {   
+            let todo = document.querySelector('.todo');
+            if(localStorage.getItem('theme') == 'dark'){
+                todo.classList.toggle('dark');
+            }
+            else {
+                todo.classList.toggle('light');
+            }
+            document.body.classList.toggle('sinOverflow');
+            const urlScript = `?${new Date().getTime()}`;
+            import('./script.js' + urlScript);
+        }
     </script>
 </body>
 </html>

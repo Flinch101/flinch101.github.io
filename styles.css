@@ -37,6 +37,15 @@ button:hover {
     top: 0;
     left: 0;
     z-index: 1000;
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.todo-display {
+    display: none !important;
 }
 
 /* SECTIONS ------------------------------------------------------- */
