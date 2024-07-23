@@ -1,8 +1,36 @@
+:root {
+    --color-blanco: rgb(235, 235, 235);
+    --color-negro: rgb(0, 0, 0);
+    --color-boton-seleccionado: rgb(155, 245, 143);
+    --color-texto-blanco: white;
+    --color-texto-negro: black;
+    --color-boton-blanco: rgb(196, 196, 196);
+}
+
+.todo {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    z-index: 1000;
+}
+
+.sinOverflow {
+    overflow: hidden;
+}
+
+.dark {
+    background-color: rgb(15,15,15);
+}
+
+.light {
+    background-color: rgb(235,235,235);
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    transition: all .3s;
+    /* transition: all .2s; */
     font-family: Kanit;
     outline: none;
     border: none;
@@ -19,7 +47,7 @@ html, body {
 }
 
 body {
-    background-color:rgb(235, 235, 235);
+    background-color:var(--color-blanco);
 }
 
 .container {
@@ -41,8 +69,8 @@ body {
 header, main, footer {
     background-color: rgb(255, 255, 255);
     margin: 10px 25px 10px 25px;
-    box-shadow: 
-        5px 5px 10px rgba(0, 0, 0, 0.1),
+    box-shadow:
+        5px 5px 10px rgba(109, 73, 73, 0.1),
         10px 10px 20px rgba(0, 0, 0, 0.1),
         15px 15px 30px rgba(0, 0, 0, 0.1),
         20px 20px 40px rgba(0, 0, 0, 0.1),
@@ -58,6 +86,7 @@ header {
 main > .container-dentro{
     display: grid;
     justify-content: center;
+    justify-items: center;
     align-items: center;
     gap: 20px;
     max-width: auto;
@@ -99,7 +128,7 @@ main > .container-dentro{
 .buscador .input input {
     height: 100%;
     border: none;
-    background-color: rgb(235, 235, 235);
+    background-color: var(--color-blanco);
     border-radius: 10px;
     padding: 10px 20px;
 }
@@ -137,16 +166,12 @@ footer {
 }
 
 .producto {
-    border: 1px solid black;
+    border: 1px solid var(--color-negro);
     margin: 20px 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: 100px 300px 100px;
+    justify-items: center;
     width: 100%;
-
-    min-height: 600px;
-    flex-grow: 2;
 }
 
 .desc {
@@ -169,18 +194,15 @@ footer {
 }
 
 .titulo {
-    min-height: 100px;
+    min-height: 0;
     font-size: 25px;
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
 .precio {
+    margin-top: 10px;
     font-size: 25px;
-}
-
-.producto:hover {
-    background-color: rgb(235, 235, 235);
 }
 
 button:hover {
@@ -188,23 +210,21 @@ button:hover {
 }
 
 .whatsapp {
-    color: white;
-    padding: 10px;
-    margin: 10px;
-    text-decoration: none;
-}
-
-.contacto {
+    height: 55px;
     display: flex;
     justify-content: space-around;
     align-items: center;
     background-color: rgb(0, 163, 0);
-    margin: 10px;
     border-radius: 10px;
+    color: var(--color-texto-blanco);
+    padding: 10px;
+    margin: 20px;
+    margin-top: 0;
+    text-decoration: none;
 }
 
-.contacto img {
-    max-width: 80px;
+.whatsapp i {
+    font-size: 30px;    
 }
 
 .carrousel-botones {
@@ -219,9 +239,9 @@ button:hover {
     margin-top: 20px;
     width: 15%;
     border: none;
-    background-color:rgb(196, 196, 196);
+    background-color:var(--color-boton-blanco);
     border-radius: 5px;
-    color: white;
+    color: var(--color-texto-blanco);
     font-size: 20px;
     position: absolute;
     top: calc(50% - 25px);
@@ -234,20 +254,16 @@ button:hover {
     left: 5px;
 }
 
+.theme {
+    cursor: pointer;
+    font-size: 20px;
+}
+
 @media only screen and (min-width: 768px) {
     main > .container-dentro{
         grid-template-columns: repeat(2, 45%);
         align-items: self-start;
-    }
-
-    .producto {
-        border: 1px solid black;
-        margin: 20px 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-    }    
+    } 
 
     .container {
         width: 70%;
@@ -255,6 +271,7 @@ button:hover {
 
     .producto {
         font-size: 12px;
+        grid-template-rows: 100px 200px 100px;
     }
 
     .contacto img {
@@ -262,10 +279,10 @@ button:hover {
     }
 
     .producto-foto {
-        min-width: 100px;
-        max-width: 100px;
-        min-height: 100px;
-        max-height: 100px;
+        min-width: 200px;
+        max-width: 200px;
+        min-height: 200px;
+        max-height: 200px;
     }
 
     main > .container-dentro{
@@ -273,35 +290,38 @@ button:hover {
     }
 }
 
-@media only screen and (min-width: 1024px) {
-    main div {
+@media only screen and (min-width: 1200px) {
+    main > .container-dentro {
         max-width: 100%;
         grid-template-columns: repeat(3, 30%);
     }
-
-    .producto {
-        width: 100%;
-        min-height: 600px;
-    }
-
-    .producto-foto {
-        min-width: 100px;
-        max-width: 100px;
-        min-height: 100px;
-        max-height: 100px;
-    } 
 }
 
-@media only screen and (min-width: 1500px) {
-    main > .container-dentro {
-        max-width: 100%;
-        grid-template-columns: repeat(4, 20%);
-    }
+.dark {
+    background-color: rgb(15,15,15);
+    color: white;
+}
 
-    .producto-foto {
-        min-width: 100px;
-        max-width: 100px;
-        min-height: 100px;
-        max-height: 100px;
-    }
+.dark-section {
+    background-color: rgb(40,40,40);
+}
+
+.dark-text {
+    color: var(--color-texto-blanco);
+}
+
+.dark-border {
+    border-color: var(--color-blanco);
+}
+
+.dark-background-light {
+    background-color: rgb(100,100,100);
+}
+
+.dark-pebe {
+    background-color: rgb(100,100,100) !important;
+}
+
+.dark-input::-webkit-input-placeholder {
+    color: white;
 }
