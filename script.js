@@ -1,7 +1,7 @@
 var url = `?${new Date().getTime()}`;
 // HEAD HTML
 {
-    document.head.innerHTML += 
+    document.head.innerHTML = 
     `
     <head>
         <meta charset="UTF-8">
@@ -18,7 +18,7 @@ var url = `?${new Date().getTime()}`;
 
 // BODY HTML
 {
-    document.body.innerHTML += 
+    document.body.innerHTML = 
     `
     <body>
         <!-- THEME ---------------------------------- -->
