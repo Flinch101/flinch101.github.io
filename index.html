@@ -4,65 +4,6 @@
     <title>Venta de Articulos</title>
 </head>
 <body>
-    <!-- THEME ---------------------------------- -->
-    <div class="todo"></div>
-    <script>
-        if(localStorage.getItem('theme') == 'dark'){
-            document.querySelector('.todo').classList.toggle('dark');
-        }
-        else {
-            document.querySelector('.todo').classList.toggle('light');
-        }
-        document.querySelector('body').classList.toggle('sinOverflow');
-        setTimeout(() => {
-                document.querySelector('.todo').style.display = 'none';
-                document.querySelector('body').classList.toggle('sinOverflow');
-            }, 500);
-    </script>
-    <div class="container">
-        <!-- ADD ---------------------------------- -->
-        <div class="ad"> 
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5838016460172798" crossorigin="anonymous"></script>
-        </div>
-        <!-- HEADER ---------------------------------- -->
-        <header>
-            <div class="container-dentro">
-                <div class="up">
-                    <div class="logo">
-                        <img src="https://raw.githubusercontent.com/Flinch101/base-de-datos/main/iconos/icono-white.png" alt="Venta de Articulos icono">
-                    </div>
-                    <div class="buscador">
-                        <div class="input">
-                            <input id="buscador" placeholder="Buscar">
-                        </div>
-                        <div class="lupa">
-                            <i class="icon-search"></i>
-                        </div>
-                        <div class="theme">
-                            <i class="icon-toggle-off" id="theme"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="down">
-                    <div class="menu-desplegable">
-                        <button id="button_todos">Todos</button>
-                        <button id="button_nuevos">Nuevos</button>
-                        <button id="button_usados">Usados</button>
-                    </div>
-                </div>
-            </div>
-        </header>
-        <!-- MAIN ---------------------------------- -->
-        <main>
-            <div class="container-dentro"></div>
-        </main>
-        <!-- FOOTER ---------------------------------- -->
-        <footer>
-            <div class="container-dentro">
-                <p>Hecho por Franco Caviglia 2024 - Zona Buenos Aires, La Matanza - Envíos a todo el país.</p>
-            </div>
-        </footer>
-    </div>
     <!-- SCRIPT ---------------------------------- -->
     <script>
         const urlScript = `?${new Date().getTime()}`;
