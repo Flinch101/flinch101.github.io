@@ -1,4 +1,5 @@
 var save = localStorage.getItem('theme');
+var url = `?${new Date().getTime()}`;
 // DOM BASE DE DATOS
 {
     let base;
@@ -6,10 +7,10 @@ var save = localStorage.getItem('theme');
 
     // OBTENER base-de-datos.js
     async function fetchFileContent() {
-        const url = 'https://raw.githubusercontent.com/Flinch101/base-de-datos/main/base-de-datos.js';
+        const urlBase = 'https://raw.githubusercontent.com/Flinch101/base-de-datos/main/base-de-datos.js' + url;
 
         try {
-            const response = await fetch(url);
+            const response = await fetch(urlBase);
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
@@ -135,7 +136,7 @@ var save = localStorage.getItem('theme');
                         buttonTheme.className = 'icon-toggle-on';
                         buttonTheme.classList.toggle('dark-text');
                         document.querySelectorAll('.logo img').forEach(elemento => {
-                            elemento.src = 'https://raw.githubusercontent.com/Flinch101/base-de-datos/main/iconos/icono-dark.png';
+                            elemento.src = 'https://raw.githubusercontent.com/Flinch101/base-de-datos/main/iconos/icono-dark.png' + url;
                         });
                         todo.classList.remove('light');
                     }
@@ -150,7 +151,7 @@ var save = localStorage.getItem('theme');
                         buttonTheme.className = 'icon-toggle-on';
                         buttonTheme.classList.toggle('dark-text');
                         document.querySelectorAll('.logo img').forEach(elemento => {
-                            elemento.src = 'https://raw.githubusercontent.com/Flinch101/base-de-datos/main/iconos/icono-dark.png';
+                            elemento.src = 'https://raw.githubusercontent.com/Flinch101/base-de-datos/main/iconos/icono-dark.png' + url;
                         });
                         toDark();
                         todo.classList.remove('light');
@@ -160,7 +161,7 @@ var save = localStorage.getItem('theme');
                         buttonTheme.className = 'icon-toggle-off';
                         toDark();
                         document.querySelectorAll('.logo img').forEach(elemento => {
-                            elemento.src = 'https://raw.githubusercontent.com/Flinch101/base-de-datos/main/iconos/icono-white.png';
+                            elemento.src = 'https://raw.githubusercontent.com/Flinch101/base-de-datos/main/iconos/icono-white.png' + url;
                         });
                         todo.classList.add('light');
                     }
@@ -169,7 +170,7 @@ var save = localStorage.getItem('theme');
                     toTheme = 'dark';
                     buttonTheme.className = 'icon-toggle-on';
                     document.querySelectorAll('.logo img').forEach(elemento => {
-                        elemento.src = 'https://raw.githubusercontent.com/Flinch101/base-de-datos/main/iconos/icono-dark.png';
+                        elemento.src = 'https://raw.githubusercontent.com/Flinch101/base-de-datos/main/iconos/icono-dark.png' + url;
                     });
                     buttonTheme.classList.toggle('dark-text');
                     todo.classList.remove('light');
@@ -221,7 +222,7 @@ var save = localStorage.getItem('theme');
                         }
                     }
             
-                    img.src = "https://raw.githubusercontent.com/Flinch101/base-de-datos/main/productos/producto_" + productoActual + "_" +siguienteFotoFunction(fotoNumero) + "." + extension; 
+                    img.src = "https://raw.githubusercontent.com/Flinch101/base-de-datos/main/productos/producto_" + productoActual + "_" +siguienteFotoFunction(fotoNumero) + "." + extension + url; 
                 });
             });
             
@@ -383,6 +384,91 @@ var save = localStorage.getItem('theme');
                     img.style.zIndex = '0';
                 });
             });
+        }
+
+        // HEAD HTML
+        {
+            document.head.innerHTML += 
+            `
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <link rel="preconnect" href="https://fonts.googleapis.com${url}">
+                <link rel="preconnect" href="https://fonts.gstatic.com${url}" crossorigin>
+                <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap${url}" rel="stylesheet">
+                <link rel="shortcut icon" href="https://raw.githubusercontent.com/Flinch101/base-de-datos/main/iconos/icono-dark.png${url}" type="image/x-icon">
+                <link rel="stylesheet" href="styles.css${url}">
+                <link rel="stylesheet" href="fontello-fcabe407/css/fontello.css${url}">
+            </head>
+            `;
+        }
+
+        // BODY HTML
+        {
+            document.body.innerHTML += 
+            `
+            <body>
+                <!-- THEME ---------------------------------- -->
+                <div class="todo"></div>
+                <script>
+                    if(localStorage.getItem('theme') == 'dark'){
+                        document.querySelector('.todo').classList.toggle('dark');
+                    }
+                    else {
+                        document.querySelector('.todo').classList.toggle('light');
+                    }
+                    document.querySelector('body').classList.toggle('sinOverflow');
+                    setTimeout(() => {
+                            document.querySelector('.todo').style.display = 'none';
+                            document.querySelector('body').classList.toggle('sinOverflow');
+                        }, 500);
+                </script>
+                <div class="container">
+                    <!-- ADD ---------------------------------- -->
+                    <div class="ad"> 
+                        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5838016460172798" crossorigin="anonymous"></script>
+                    </div>
+                    <!-- HEADER ---------------------------------- -->
+                    <header>
+                        <div class="container-dentro">
+                            <div class="up">
+                                <div class="logo">
+                                    <img src="https://raw.githubusercontent.com/Flinch101/base-de-datos/main/iconos/icono-white.png" alt="Venta de Articulos icono">
+                                </div>
+                                <div class="buscador">
+                                    <div class="input">
+                                        <input id="buscador" placeholder="Buscar">
+                                    </div>
+                                    <div class="lupa">
+                                        <i class="icon-search"></i>
+                                    </div>
+                                    <div class="theme">
+                                        <i class="icon-toggle-off" id="theme"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="down">
+                                <div class="menu-desplegable">
+                                    <button id="button_todos">Todos</button>
+                                    <button id="button_nuevos">Nuevos</button>
+                                    <button id="button_usados">Usados</button>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+                    <!-- MAIN ---------------------------------- -->
+                    <main>
+                        <div class="container-dentro"></div>
+                    </main>
+                    <!-- FOOTER ---------------------------------- -->
+                    <footer>
+                        <div class="container-dentro">
+                            <p>Hecho por Franco Caviglia 2024 - Zona Buenos Aires, La Matanza - Envíos a todo el país.</p>
+                        </div>
+                    </footer>
+                </div>
+            </body>
+            `; 
         }
     });
 }
