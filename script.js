@@ -1,6 +1,7 @@
 // DOM BASE DE DATOS
 {
     let base;
+    var productosFoto = {};
     async function fetchFileContent() {
         const url = 'https://raw.githubusercontent.com/Flinch101/base-de-datos/main/base-de-datos.js';
 
@@ -30,6 +31,8 @@
                 let desc = producto[3];
                 let msjWSP = producto[4];
                 let nuevoUsado = producto[5];
+                let cantidadFotos = producto[6];
+                productosFoto[i+1] = cantidadFotos;
             
                 let containerdentro = document.querySelector('main > .container-dentro');
                 
@@ -46,10 +49,10 @@
                     divCarrousel.className = 'carrousel-botones';
                         let btIzq = document.createElement('button');
                         btIzq.id = 'carrousel-izq';
-                        btIzq.innerHTML = '←'
+                        btIzq.innerHTML = '<i class="icon-left-open"></i>'
                         let btDer = document.createElement('button');
                         btDer.id = 'carrousel-der';
-                        btDer.innerHTML = '→'
+                        btDer.innerHTML = '<i class="icon-right-open"></i>'
                     let divDesc = document.createElement('div');
                     divDesc.className = 'desc';
                         let pDesc = document.createElement('p');
@@ -71,11 +74,16 @@
                     containerdentro.appendChild(divProducto);
 
                     divProducto.appendChild(pTitulo);
-                    divProducto.appendChild(imgProducto);
 
-                    divCarrousel.appendChild(btIzq);
-                    divCarrousel.appendChild(btDer);
-                    divProducto.appendChild(divCarrousel);
+                    if(cantidadFotos > 1){
+                        divCarrousel.appendChild(btIzq);
+                        divCarrousel.appendChild(btDer);
+                        divCarrousel.appendChild(imgProducto);
+                        divProducto.appendChild(divCarrousel);
+                    }
+                    else {
+                        divProducto.appendChild(imgProducto);
+                    }
 
                     divDesc.appendChild(pDesc);
                     divProducto.appendChild(divDesc)
@@ -101,11 +109,6 @@
             
             var buttonDeslizarIzq = document.querySelectorAll('#carrousel-izq');
             var buttonDeslizarDer = document.querySelectorAll('#carrousel-der');
-            var productosFoto = {
-                1: 4,
-                2: 1,
-                3: 1
-            };
             
             document.querySelectorAll('.producto').forEach(producto => {
                 listaDeProductos.push(producto);
@@ -113,7 +116,7 @@
             
             buttonDeslizarIzq.forEach(button => {
                 button.addEventListener('click', () => {
-                    let img = button.parentElement.previousElementSibling;
+                    let img = button.nextElementSibling.nextElementSibling;
                     let srcImg = img.src.substring(img.src.indexOf("producto_"), img.src.length);
                     let imgParticion = srcImg.split("_");
                     imgParticion[2] = imgParticion[2].split(".");
@@ -121,10 +124,11 @@
                     let productoActual = parseInt(imgParticion[1]);
                     let fotoNumero = parseInt(imgParticion[2][0]);
                     let extension = imgParticion[2][1];
-            
+                    let fotoMaxima = productosFoto[productoActual];
+
                     let siguienteFotoFunction = (foto) => {
                         if(foto - 1 == 0) {
-                            return 1;
+                            return fotoMaxima;
                         }
                         else {
                             return foto - 1;
@@ -137,7 +141,7 @@
             
             buttonDeslizarDer.forEach(button => {
                 button.addEventListener('click', () => {
-                    let img = button.parentElement.previousElementSibling;
+                    let img = button.nextElementSibling;
                     let srcImg = img.src.substring(img.src.indexOf("producto_"), img.src.length);
                     let imgParticion = srcImg.split("_");
                     imgParticion[2] = imgParticion[2].split(".");
