@@ -1,3 +1,4 @@
+var url = `?${new Date().getTime()}`;
 // HEAD HTML
 {
     document.head.innerHTML += 
@@ -84,7 +85,6 @@
 }
 
 var save = localStorage.getItem('theme');
-var url = `?${new Date().getTime()}`;
 // DOM BASE DE DATOS
 {
     let base;
