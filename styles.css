@@ -326,3 +326,7 @@ button:hover {
 .dark-input::-webkit-input-placeholder {
     color: white;
 }
+
+.texto-negro {
+    color: black;
+}
