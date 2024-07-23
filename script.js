@@ -120,6 +120,8 @@ var save = localStorage.getItem('theme');
                 });
                 document.querySelector('input').classList.toggle('dark-input');
                 document.querySelector('input').classList.toggle('dark-pebe');
+                document.querySelector('.todo').style.backgroundColor = ''
+                document.querySelector('.todo').classList.toggle('dark');
             }
 
             let buttonTheme = document.getElementById("theme");
@@ -127,11 +129,14 @@ var save = localStorage.getItem('theme');
                 if(save !== null) {
                     if (save == 'dark'){
                         toDark();
+                        document.querySelector('.todo').style.backgroundColor = ''
+                        document.querySelector('.todo').classList.add('dark');
                         buttonTheme.className = 'icon-toggle-on';
                         buttonTheme.classList.toggle('dark-text');
                         document.querySelectorAll('.logo img').forEach(elemento => {
                             elemento.src = 'https://raw.githubusercontent.com/Flinch101/base-de-datos/main/iconos/icono-dark.png';
                         });
+                        document.querySelector('.todo').classList.remove('light');
                     }
                 }
             }
@@ -147,6 +152,7 @@ var save = localStorage.getItem('theme');
                             elemento.src = 'https://raw.githubusercontent.com/Flinch101/base-de-datos/main/iconos/icono-dark.png';
                         });
                         toDark();
+                        document.querySelector('.todo').classList.remove('light');
                     }
                     else {
                         toTheme = 'default';
@@ -155,6 +161,7 @@ var save = localStorage.getItem('theme');
                         document.querySelectorAll('.logo img').forEach(elemento => {
                             elemento.src = 'https://raw.githubusercontent.com/Flinch101/base-de-datos/main/iconos/icono-white.png';
                         });
+                        document.querySelector('.todo').classList.add('light');
                     }
                 }
                 else {
@@ -164,6 +171,7 @@ var save = localStorage.getItem('theme');
                         elemento.src = 'https://raw.githubusercontent.com/Flinch101/base-de-datos/main/iconos/icono-dark.png';
                     });
                     buttonTheme.classList.toggle('dark-text');
+                    document.querySelector('.todo').classList.remove('light');
                     toDark();
                 }
 
@@ -248,14 +256,16 @@ var save = localStorage.getItem('theme');
             buttonTodos.addEventListener('click', () => {
                 if(estaBuscando == false){
                     buttonTodos.style.backgroundColor = 'rgb(155, 245, 143)';
-                    if(save !== null && save == 'dark'){
-                        buttonNuevo.style.backgroundColor = 'rgb(100, 100, 100)';
-                        buttonUsados.style.backgroundColor = 'rgb(100, 100, 100)';
-                    }
-                    else {
-                        buttonNuevo.style.backgroundColor = 'rgb(235, 235, 235)';
-                        buttonUsados.style.backgroundColor = 'rgb(235, 235, 235)';
-                    }
+                    buttonNuevo.style.backgroundColor = '';
+                    buttonUsados.style.backgroundColor = '';
+                    // if(save !== null && save == 'dark'){
+                    //     buttonNuevo.style.backgroundColor = 'rgb(100, 100, 100)';
+                    //     buttonUsados.style.backgroundColor = 'rgb(100, 100, 100)';
+                    // }
+                    // else {
+                    //     buttonNuevo.style.backgroundColor = 'rgb(235, 235, 235)';
+                    //     buttonUsados.style.backgroundColor = 'rgb(235, 235, 235)';
+                    // }
                     
                     for(let i=0; i<productosUsados.length; i++){
                         productosUsados[i].style.display = 'grid';
@@ -265,33 +275,39 @@ var save = localStorage.getItem('theme');
                     }
                     lastCategoria = 'todos';
 
-                    if(productosNuevos.length + productosUsados.length == 1){
-                        document.querySelector('main > .container-dentro').style.gridTemplateColumns = "repeat(1, 30%)";
-                        document.querySelector('main > .container-dentro').style.justifyContent = "space-evenly";
-                    }
-                    else if(productosNuevos.length + productosUsados.length == 2){
-                        document.querySelector('main > .container-dentro').style.gridTemplateColumns = "repeat(2, 30%)";
-                        document.querySelector('main > .container-dentro').style.justifyContent = "space-evenly";
-                    }
-                    else if(productosNuevos.length + productosUsados.length >= 3){
-                        document.querySelector('main > .container-dentro').style.gridTemplateColumns = "repeat(3, 30%)";
-                        document.querySelector('main > .container-dentro').style.justifyContent = "space-evenly";
-                    }
+                    // if(productosNuevos.length + productosUsados.length == 1){
+                    //     document.querySelector('main > .container-dentro').style.gridTemplateColumns = "repeat(1, 30%)";
+                    //     document.querySelector('main > .container-dentro').style.justifyContent = "space-evenly";
+                    // }
+                    // else if(productosNuevos.length + productosUsados.length == 1){
+                    //     document.querySelector('main > .container-dentro').style.gridTemplateColumns = "repeat(1, 100%)";
+                    //     document.querySelector('main > .container-dentro').style.justifyContent = "space-evenly";
+                    // }
+                    // else if(productosNuevos.length + productosUsados.length == 2){
+                    //     document.querySelector('main > .container-dentro').style.gridTemplateColumns = "repeat(2, 30%)";
+                    //     document.querySelector('main > .container-dentro').style.justifyContent = "space-evenly";
+                    // }
+                    // else if(productosNuevos.length + productosUsados.length >= 3){
+                    //     document.querySelector('main > .container-dentro').style.gridTemplateColumns = "repeat(3, 30%)";
+                    //     document.querySelector('main > .container-dentro').style.justifyContent = "space-evenly";
+                    // }
                 }
             });
             
             buttonNuevo.addEventListener('click', () => {
                 if(estaBuscando == false){
                     buttonNuevo.style.backgroundColor = 'rgb(155, 245, 143)';
-                    buttonTodos.style.backgroundColor = 'rgb(235, 235, 235)';
-                    if(save !== null && save == 'dark'){
-                        buttonTodos.style.backgroundColor = 'rgb(100, 100, 100)';
-                        buttonUsados.style.backgroundColor = 'rgb(100, 100, 100)';
-                    }
-                    else {
-                        buttonTodos.style.backgroundColor = 'rgb(235, 235, 235)';
-                        buttonUsados.style.backgroundColor = 'rgb(235, 235, 235)';
-                    }
+                    buttonTodos.style.backgroundColor = '';
+                    buttonUsados.style.backgroundColor = '';
+                    // buttonTodos.style.backgroundColor = 'rgb(235, 235, 235)';
+                    // if(save !== null && save == 'dark'){
+                    //     buttonTodos.style.backgroundColor = 'rgb(100, 100, 100)';
+                    //     buttonUsados.style.backgroundColor = 'rgb(100, 100, 100)';
+                    // }
+                    // else {
+                    //     buttonTodos.style.backgroundColor = 'rgb(235, 235, 235)';
+                    //     buttonUsados.style.backgroundColor = 'rgb(235, 235, 235)';
+                    // }
             
                     for(let i=0; i<productosUsados.length; i++){
                         productosUsados[i].style.display = 'none';
@@ -301,34 +317,32 @@ var save = localStorage.getItem('theme');
                     }
                     lastCategoria = 'nuevos';
 
-                    productosNuevos.forEach(resultado => {
-                        if(productosNuevos.length == 1){
-                            resultado.parentElement.style.gridTemplateColumns = "repeat(1, 30%)";
-                            resultado.parentElement.style.justifyContent = "space-evenly";
-                        }
-                        else if(productosNuevos.length == 2){
-                            resultado.parentElement.style.gridTemplateColumns = "repeat(2, 30%)";
-                            resultado.parentElement.style.justifyContent = "space-evenly";
-                        }
-                        else {
-                            resultado.parentElement.style.gridTemplateColumns = "repeat(3, 30%)";
-                            resultado.parentElement.style.justifyContent = "space-evenly";
-                        }
-                    });
+                    // productosNuevos.forEach(resultado => {
+                    //     if(productosNuevos.length == 1){
+                    //         resultado.parentElement.style.gridTemplateColumns = "repeat(1, 30%)";
+                    //         resultado.parentElement.style.justifyContent = "space-evenly";
+                    //     }
+                    //     else if (productosNuevos.length == 1){
+                    //         resultado.parentElement.style.gridTemplateColumns = "repeat(1, 100%)";
+                    //         resultado.parentElement.style.justifyContent = "space-evenly";
+                    //     }
+                    //     else if(productosNuevos.length == 2){
+                    //         resultado.parentElement.style.gridTemplateColumns = "repeat(2, 30%)";
+                    //         resultado.parentElement.style.justifyContent = "space-evenly";
+                    //     }
+                    //     else if (productosNuevos.length >= 2){
+                    //         resultado.parentElement.style.gridTemplateColumns = "repeat(3, 30%)";
+                    //         resultado.parentElement.style.justifyContent = "space-evenly";
+                    //     }
+                    // });
                 }
             });
             
             buttonUsados.addEventListener('click', () => {
                 if(estaBuscando == false){
                     buttonUsados.style.backgroundColor = 'rgb(155, 245, 143)';
-                    if(save !== null && save == 'dark'){
-                        buttonNuevo.style.backgroundColor = 'rgb(100, 100, 100)';
-                        buttonTodos.style.backgroundColor = 'rgb(100, 100, 100)';
-                    }
-                    else {
-                        buttonNuevo.style.backgroundColor = 'rgb(235, 235, 235)';
-                        buttonTodos.style.backgroundColor = 'rgb(235, 235, 235)';
-                    }
+                    buttonNuevo.style.backgroundColor = '';
+                    buttonTodos.style.backgroundColor = '';
             
                     for(let i=0; i<productosNuevos.length; i++){
                         productosNuevos[i].style.display = 'none';
@@ -338,20 +352,24 @@ var save = localStorage.getItem('theme');
                     }
                     lastCategoria = 'usados';
 
-                    productosUsados.forEach(resultado => {
-                        if(productosUsados.length == 1){
-                            resultado.parentElement.style.gridTemplateColumns = "repeat(1, 30%)";
-                            resultado.parentElement.style.justifyContent = "space-evenly";
-                        }
-                        else if(productosUsados.length == 2){
-                            resultado.parentElement.style.gridTemplateColumns = "repeat(2, 30%)";
-                            resultado.parentElement.style.justifyContent = "space-evenly";
-                        }
-                        else {
-                            resultado.parentElement.style.gridTemplateColumns = "repeat(3, 30%)";
-                            resultado.parentElement.style.justifyContent = "space-evenly";
-                        }
-                    });
+                    // productosUsados.forEach(resultado => {
+                    //     if(productosUsados.length == 1){
+                    //         resultado.parentElement.style.gridTemplateColumns = "repeat(1, 30%)";
+                    //         resultado.parentElement.style.justifyContent = "space-evenly";
+                    //     }
+                    //     else if(productosUsados.length == 1){
+                    //         resultado.parentElement.style.gridTemplateColumns = "repeat(1, 100%)";
+                    //         resultado.parentElement.style.justifyContent = "space-evenly";
+                    //     }
+                    //     else if(productosUsados.length == 2){
+                    //         resultado.parentElement.style.gridTemplateColumns = "repeat(2, 30%)";
+                    //         resultado.parentElement.style.justifyContent = "space-evenly";
+                    //     }
+                    //     else if(productosUsados.length >= 3) {
+                    //         resultado.parentElement.style.gridTemplateColumns = "repeat(3, 30%)";
+                    //         resultado.parentElement.style.justifyContent = "space-evenly";
+                    //     }
+                    // });
                 }
             });
             
@@ -502,6 +520,47 @@ var save = localStorage.getItem('theme');
                     }
                 }
             });
+
+            var carta = document.querySelectorAll('.producto img');
+            let positionX;
+            let positionY;
+            carta.forEach(img => {
+                img.addEventListener('mousemove', function(event) {
+                    const rect = img.getBoundingClientRect();
+                    positionX = event.clientX - rect.left;
+                    positionY = event.clientY - rect.top;
+
+                    positionX = positionX - (img.clientWidth/2);
+                    positionY = positionY - (img.clientHeight/2);
+
+                    img.style.transform = `
+                        perspective(1000px)
+                        scale(1.2)
+                        rotateY(${(positionX/10)}deg)
+                        rotateX(${(-positionY/10)}deg)
+                    `;
+
+                    document.querySelector('.todo').style.display = 'block';
+                    document.querySelector('.todo').style.opacity = '0.8';
+                    document.querySelector('.todo').style.zIndex = '1';
+                    img.style.zIndex = '2';
+                    document.querySelector('.todo').style.width = document.querySelector('body').clientWidth + "px";
+                    document.querySelector('.todo').style.height = document.querySelector('.container').clientHeight + "px";
+                });
+
+                img.addEventListener('mouseleave', function(event) {
+                    img.style.transform = '';
+                    document.querySelector('.todo').style.display = 'none';
+                    document.querySelector('.todo').style.opacity = '1';
+                    img.style.zIndex = '0';
+                });
+            });
+        }
+
+        // MEDIA QUERIES
+        {
+            let widthWindow = document.querySelector('body').clientWidth;
+            let heightWindow = document.querySelector('.container').clientHeight;
         }
     });
 }
