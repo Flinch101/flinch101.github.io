@@ -100,8 +100,9 @@ var save = localStorage.getItem('theme');
 
         // THEME
         {
+            let todo = document.querySelector('.todo');
             function toDark(){
-                // document.querySelector('body').style.backgroundColor = 'rgb(15,15,15)';
+                let inputD = document.querySelector('input');
                 document.querySelector('body').classList.toggle('dark');
                 document.querySelectorAll('header, main, footer').forEach(element => {
                     element.classList.toggle('dark-section');
@@ -118,10 +119,10 @@ var save = localStorage.getItem('theme');
                 document.querySelectorAll('i.icon-right-open, i.icon-left-open').forEach(element => {
                     element.classList.toggle('texto-negro');
                 });
-                document.querySelector('input').classList.toggle('dark-input');
-                document.querySelector('input').classList.toggle('dark-pebe');
-                document.querySelector('.todo').style.backgroundColor = ''
-                document.querySelector('.todo').classList.toggle('dark');
+                inputD.classList.toggle('dark-input');
+                inputD.classList.toggle('dark-pebe');
+                todo.style.backgroundColor = '';
+                todo.classList.toggle('dark');
             }
 
             let buttonTheme = document.getElementById("theme");
@@ -129,14 +130,14 @@ var save = localStorage.getItem('theme');
                 if(save !== null) {
                     if (save == 'dark'){
                         toDark();
-                        document.querySelector('.todo').style.backgroundColor = ''
-                        document.querySelector('.todo').classList.add('dark');
+                        todo.style.backgroundColor = '';
+                        todo.classList.add('dark');
                         buttonTheme.className = 'icon-toggle-on';
                         buttonTheme.classList.toggle('dark-text');
                         document.querySelectorAll('.logo img').forEach(elemento => {
                             elemento.src = 'https://raw.githubusercontent.com/Flinch101/base-de-datos/main/iconos/icono-dark.png';
                         });
-                        document.querySelector('.todo').classList.remove('light');
+                        todo.classList.remove('light');
                     }
                 }
             }
@@ -152,7 +153,7 @@ var save = localStorage.getItem('theme');
                             elemento.src = 'https://raw.githubusercontent.com/Flinch101/base-de-datos/main/iconos/icono-dark.png';
                         });
                         toDark();
-                        document.querySelector('.todo').classList.remove('light');
+                        todo.classList.remove('light');
                     }
                     else {
                         toTheme = 'default';
@@ -161,7 +162,7 @@ var save = localStorage.getItem('theme');
                         document.querySelectorAll('.logo img').forEach(elemento => {
                             elemento.src = 'https://raw.githubusercontent.com/Flinch101/base-de-datos/main/iconos/icono-white.png';
                         });
-                        document.querySelector('.todo').classList.add('light');
+                        todo.classList.add('light');
                     }
                 }
                 else {
@@ -171,7 +172,7 @@ var save = localStorage.getItem('theme');
                         elemento.src = 'https://raw.githubusercontent.com/Flinch101/base-de-datos/main/iconos/icono-dark.png';
                     });
                     buttonTheme.classList.toggle('dark-text');
-                    document.querySelector('.todo').classList.remove('light');
+                    todo.classList.remove('light');
                     toDark();
                 }
 
@@ -252,20 +253,12 @@ var save = localStorage.getItem('theme');
             let productosNuevos = document.querySelectorAll('#productonuevo');
             
             buttonTodos.style.backgroundColor = 'rgb(155, 245, 143)';
-            
-            buttonTodos.addEventListener('click', () => {
+
+            function lastUsadoTodos() {
                 if(estaBuscando == false){
                     buttonTodos.style.backgroundColor = 'rgb(155, 245, 143)';
                     buttonNuevo.style.backgroundColor = '';
                     buttonUsados.style.backgroundColor = '';
-                    // if(save !== null && save == 'dark'){
-                    //     buttonNuevo.style.backgroundColor = 'rgb(100, 100, 100)';
-                    //     buttonUsados.style.backgroundColor = 'rgb(100, 100, 100)';
-                    // }
-                    // else {
-                    //     buttonNuevo.style.backgroundColor = 'rgb(235, 235, 235)';
-                    //     buttonUsados.style.backgroundColor = 'rgb(235, 235, 235)';
-                    // }
                     
                     for(let i=0; i<productosUsados.length; i++){
                         productosUsados[i].style.display = 'grid';
@@ -274,40 +267,14 @@ var save = localStorage.getItem('theme');
                         productosNuevos[i].style.display = 'grid';
                     }
                     lastCategoria = 'todos';
-
-                    // if(productosNuevos.length + productosUsados.length == 1){
-                    //     document.querySelector('main > .container-dentro').style.gridTemplateColumns = "repeat(1, 30%)";
-                    //     document.querySelector('main > .container-dentro').style.justifyContent = "space-evenly";
-                    // }
-                    // else if(productosNuevos.length + productosUsados.length == 1){
-                    //     document.querySelector('main > .container-dentro').style.gridTemplateColumns = "repeat(1, 100%)";
-                    //     document.querySelector('main > .container-dentro').style.justifyContent = "space-evenly";
-                    // }
-                    // else if(productosNuevos.length + productosUsados.length == 2){
-                    //     document.querySelector('main > .container-dentro').style.gridTemplateColumns = "repeat(2, 30%)";
-                    //     document.querySelector('main > .container-dentro').style.justifyContent = "space-evenly";
-                    // }
-                    // else if(productosNuevos.length + productosUsados.length >= 3){
-                    //     document.querySelector('main > .container-dentro').style.gridTemplateColumns = "repeat(3, 30%)";
-                    //     document.querySelector('main > .container-dentro').style.justifyContent = "space-evenly";
-                    // }
                 }
-            });
-            
-            buttonNuevo.addEventListener('click', () => {
+            }
+
+            function lastUsadoNuevos() {
                 if(estaBuscando == false){
                     buttonNuevo.style.backgroundColor = 'rgb(155, 245, 143)';
                     buttonTodos.style.backgroundColor = '';
                     buttonUsados.style.backgroundColor = '';
-                    // buttonTodos.style.backgroundColor = 'rgb(235, 235, 235)';
-                    // if(save !== null && save == 'dark'){
-                    //     buttonTodos.style.backgroundColor = 'rgb(100, 100, 100)';
-                    //     buttonUsados.style.backgroundColor = 'rgb(100, 100, 100)';
-                    // }
-                    // else {
-                    //     buttonTodos.style.backgroundColor = 'rgb(235, 235, 235)';
-                    //     buttonUsados.style.backgroundColor = 'rgb(235, 235, 235)';
-                    // }
             
                     for(let i=0; i<productosUsados.length; i++){
                         productosUsados[i].style.display = 'none';
@@ -316,29 +283,10 @@ var save = localStorage.getItem('theme');
                         productosNuevos[i].style.display = 'grid';
                     }
                     lastCategoria = 'nuevos';
-
-                    // productosNuevos.forEach(resultado => {
-                    //     if(productosNuevos.length == 1){
-                    //         resultado.parentElement.style.gridTemplateColumns = "repeat(1, 30%)";
-                    //         resultado.parentElement.style.justifyContent = "space-evenly";
-                    //     }
-                    //     else if (productosNuevos.length == 1){
-                    //         resultado.parentElement.style.gridTemplateColumns = "repeat(1, 100%)";
-                    //         resultado.parentElement.style.justifyContent = "space-evenly";
-                    //     }
-                    //     else if(productosNuevos.length == 2){
-                    //         resultado.parentElement.style.gridTemplateColumns = "repeat(2, 30%)";
-                    //         resultado.parentElement.style.justifyContent = "space-evenly";
-                    //     }
-                    //     else if (productosNuevos.length >= 2){
-                    //         resultado.parentElement.style.gridTemplateColumns = "repeat(3, 30%)";
-                    //         resultado.parentElement.style.justifyContent = "space-evenly";
-                    //     }
-                    // });
                 }
-            });
-            
-            buttonUsados.addEventListener('click', () => {
+            }
+
+            function lastUsadoUsados() {
                 if(estaBuscando == false){
                     buttonUsados.style.backgroundColor = 'rgb(155, 245, 143)';
                     buttonNuevo.style.backgroundColor = '';
@@ -351,27 +299,12 @@ var save = localStorage.getItem('theme');
                         productosUsados[i].style.display = 'grid';
                     }
                     lastCategoria = 'usados';
-
-                    // productosUsados.forEach(resultado => {
-                    //     if(productosUsados.length == 1){
-                    //         resultado.parentElement.style.gridTemplateColumns = "repeat(1, 30%)";
-                    //         resultado.parentElement.style.justifyContent = "space-evenly";
-                    //     }
-                    //     else if(productosUsados.length == 1){
-                    //         resultado.parentElement.style.gridTemplateColumns = "repeat(1, 100%)";
-                    //         resultado.parentElement.style.justifyContent = "space-evenly";
-                    //     }
-                    //     else if(productosUsados.length == 2){
-                    //         resultado.parentElement.style.gridTemplateColumns = "repeat(2, 30%)";
-                    //         resultado.parentElement.style.justifyContent = "space-evenly";
-                    //     }
-                    //     else if(productosUsados.length >= 3) {
-                    //         resultado.parentElement.style.gridTemplateColumns = "repeat(3, 30%)";
-                    //         resultado.parentElement.style.justifyContent = "space-evenly";
-                    //     }
-                    // });
                 }
-            });
+            }
+            
+            buttonTodos.addEventListener('click', lastUsadoTodos);
+            buttonNuevo.addEventListener('click', lastUsadoNuevos);
+            buttonUsados.addEventListener('click', lastUsadoUsados);
             
             input.addEventListener('input', () => {
                 if(input.value.length > 0) {
@@ -398,124 +331,19 @@ var save = localStorage.getItem('theme');
                     }
                     resultados.forEach(resultado => {
                         resultado.style.display = 'grid';
-                        if(resultados.length == 1){
-                            resultado.parentElement.style.gridTemplateColumns = "repeat(1, 30%)";
-                            resultado.parentElement.style.justifyContent = "space-evenly";
-                        }
-                        else if(resultados.length == 2){
-                            resultado.parentElement.style.gridTemplateColumns = "repeat(2, 30%)";
-                            resultado.parentElement.style.justifyContent = "space-evenly";
-                        }
-                        else if(resultados.length == 3){
-                            resultado.parentElement.style.gridTemplateColumns = "repeat(3, 30%)";
-                            resultado.parentElement.style.justifyContent = "space-evenly";
-                        }
                     });
                 }
                 else {
                     estaBuscando = false;
                     switch(lastCategoria){
                         case "todos":
-                            if(save !== null && save == 'dark'){
-                                buttonNuevo.style.backgroundColor = 'rgb(100, 100, 100)';
-                                buttonTodos.style.backgroundColor = 'rgb(155, 245, 143)';
-                                buttonUsados.style.backgroundColor = 'rgb(100, 100, 100)';
-                            }
-                            else {
-                                buttonNuevo.style.backgroundColor = 'rgb(235, 235, 235)';
-                                buttonTodos.style.backgroundColor = 'rgb(155, 245, 143)';
-                                buttonUsados.style.backgroundColor = 'rgb(235, 235, 235)';
-                            }
-            
-                            for(let i=0; i<productosUsados.length; i++){
-                                productosUsados[i].style.display = 'grid';
-                            }
-                            for(let i=0; i<productosNuevos.length; i++){
-                                productosNuevos[i].style.display = 'grid';
-                            }
-                            lastCategoria = 'todos';
-
-                            if(productosNuevos.length + productosUsados.length == 1){
-                                document.querySelector('main > .container-dentro').style.gridTemplateColumns = "repeat(1, 30%)";
-                                document.querySelector('main > .container-dentro').style.justifyContent = "space-evenly";
-                            }
-                            else if(productosNuevos.length + productosUsados.length == 2){
-                                document.querySelector('main > .container-dentro').style.gridTemplateColumns = "repeat(2, 30%)";
-                                document.querySelector('main > .container-dentro').style.justifyContent = "space-evenly";
-                            }
-                            else if(productosNuevos.length + productosUsados.length >= 3){
-                                document.querySelector('main > .container-dentro').style.gridTemplateColumns = "repeat(3, 30%)";
-                                document.querySelector('main > .container-dentro').style.justifyContent = "space-evenly";
-                            }
+                            lastUsadoTodos();
                             break;
                         case "nuevos":
-                            if(save !== null && save == 'dark'){
-                                buttonNuevo.style.backgroundColor = 'rgb(155, 245, 143)';
-                                buttonTodos.style.backgroundColor = 'rgb(100, 100, 100)';
-                                buttonUsados.style.backgroundColor = 'rgb(100, 100, 100)';
-                            }
-                            else {
-                                buttonNuevo.style.backgroundColor = 'rgb(155, 245, 143)';
-                                buttonTodos.style.backgroundColor = 'rgb(235, 235, 235)';
-                                buttonUsados.style.backgroundColor = 'rgb(235, 235, 235)';
-                            }
-            
-                            for(let i=0; i<productosUsados.length; i++){
-                                productosUsados[i].style.display = 'none';
-                            }
-                            for(let i=0; i<productosNuevos.length; i++){
-                                productosNuevos[i].style.display = 'grid';
-                            }
-                            lastCategoria = 'nuevos';
-
-                            productosNuevos.forEach(resultado => {
-                                if(productosNuevos.length == 1){
-                                    resultado.parentElement.style.gridTemplateColumns = "repeat(1, 30%)";
-                                    resultado.parentElement.style.justifyContent = "space-evenly";
-                                }
-                                else if(productosNuevos.length == 2){
-                                    resultado.parentElement.style.gridTemplateColumns = "repeat(2, 30%)";
-                                    resultado.parentElement.style.justifyContent = "space-evenly";
-                                }
-                                else {
-                                    resultado.parentElement.style.gridTemplateColumns = "repeat(3, 30%)";
-                                    resultado.parentElement.style.justifyContent = "space-evenly";
-                                }
-                            });
+                            lastUsadoNuevos();
                             break;
                         case "usados":
-                            if(save !== null && save == 'dark'){
-                                buttonNuevo.style.backgroundColor = 'rgb(100, 100, 100)';
-                                buttonTodos.style.backgroundColor = 'rgb(100, 100, 100)';
-                                buttonUsados.style.backgroundColor = 'rgb(155, 245, 143)';
-                            }
-                            else {
-                                buttonNuevo.style.backgroundColor = 'rgb(235, 235, 235)';
-                                buttonTodos.style.backgroundColor = 'rgb(235, 235, 235)';
-                                buttonUsados.style.backgroundColor = 'rgb(155, 245, 143)';
-                            }
-                    
-                            for(let i=0; i<productosNuevos.length; i++){
-                                productosNuevos[i].style.display = 'none';
-                            }
-                            for(let i=0; i<productosUsados.length; i++){
-                                productosUsados[i].style.display = 'grid';
-                            }
-                            lastCategoria = 'usados';
-                            productosUsados.forEach(resultado => {
-                                if(productosUsados.length == 1){
-                                    resultado.parentElement.style.gridTemplateColumns = "repeat(1, 30%)";
-                                    resultado.parentElement.style.justifyContent = "space-evenly";
-                                }
-                                else if(productosUsados.length == 2){
-                                    resultado.parentElement.style.gridTemplateColumns = "repeat(2, 30%)";
-                                    resultado.parentElement.style.justifyContent = "space-evenly";
-                                }
-                                else {
-                                    resultado.parentElement.style.gridTemplateColumns = "repeat(3, 30%)";
-                                    resultado.parentElement.style.justifyContent = "space-evenly";
-                                }
-                            });
+                            lastUsadoUsados();
                             break;
                     }
                 }
@@ -555,12 +383,6 @@ var save = localStorage.getItem('theme');
                     img.style.zIndex = '0';
                 });
             });
-        }
-
-        // MEDIA QUERIES
-        {
-            let widthWindow = document.querySelector('body').clientWidth;
-            let heightWindow = document.querySelector('.container').clientHeight;
         }
     });
 }
