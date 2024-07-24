@@ -430,11 +430,10 @@ var save = localStorage.getItem('theme');
                     todo.classList.remove('todo-display');
                     if(localStorage.getItem('theme') == 'dark'){
                         todo.style.opacity = '0.2';
-                        todo.style.backgroundColor = 'rgb(15,15,15) !important';
+                        todo.style.backgroundColor = 'rgb(235,235,235) !important';
                     }
                     else {
                         todo.style.opacity = '0.8';
-                         todo.style.backgroundColor = 'rgb(235,235,235) !important';
                     }
                     todo.style.zIndex = '1';
                     img.style.zIndex = '2';
