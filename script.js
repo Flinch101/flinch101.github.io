@@ -430,9 +430,11 @@ var save = localStorage.getItem('theme');
                     todo.classList.remove('todo-display');
                     if(localStorage.getItem('theme') == 'dark'){
                         todo.style.opacity = '0.2';
+                        todo.style.backgroundColor = 'rgb(15,15,15) !important';
                     }
                     else {
                         todo.style.opacity = '0.8';
+                         todo.style.backgroundColor = 'rgb(235,235,235) !important';
                     }
                     todo.style.zIndex = '1';
                     img.style.zIndex = '2';
@@ -441,6 +443,7 @@ var save = localStorage.getItem('theme');
                 });
 
                 img.addEventListener('mouseleave', function(event) {
+                    todo.style.backgroundColor = '';
                     img.style.transform = '';
                     todo.classList.add('todo-display');
                     todo.style.opacity = '1';
