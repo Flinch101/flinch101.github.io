@@ -1,55 +1,19 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <title>Venta de Articulos</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com?1721779201864">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap?1721779201864" rel="stylesheet">
+        <link rel="shortcut icon" href="https://raw.githubusercontent.com/Flinch101/base-de-datos/main/iconos/icono-dark.png?1721779201864" type="image/x-icon">
+        <link rel="stylesheet" href="styles.css?1721779201864">
+        <link rel="stylesheet" href="fontello/css/fontello.css?1721779201864">
+        <title>Venta de Articulos</title>
+    </head>
 <body>
-    <!-- TODO ESTILO -->
-    <style>
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .icon-spin6 {
-            display: inline-block;
-            animation: spin 2s linear infinite;
-        }
-
-        .todo {
-            width: 100vw;
-            height: 100vh;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-            font-size: 50px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-    </style>
     <!-- TODO ---------------------------------- -->
-    <div class="todo">
-        <p>Cargando...</p>
-        <i class="icon-spin6"></i>
-    </div>
-    <!-- SCRIPT JS -->
-    <script>
-        // TODO
-        {   
-            let todo = document.querySelector('.todo');
-            if(localStorage.getItem('theme') == 'dark'){
-                todo.classList.toggle('dark');
-            }
-            else {
-                todo.classList.toggle('light');
-            }
-            document.body.classList.toggle('sinOverflow');
-            const urlScript = `?${new Date().getTime()}`;
-            import('./script.js' + urlScript);
-        }
-    </script>
+    <div class="todo"></div>
+    <script src="script.js?1721779201864"></script>
 </body>
 </html>
