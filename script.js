@@ -1,5 +1,7 @@
 var url = `?${new Date().getTime()}`;
-
+let todo = document.querySelector('.todo');
+todo.classList.remove('todo-display');
+document.body.classList.toggle('sinOverflow');
 // BODY HTML
 {
     document.body.innerHTML += 
@@ -445,10 +447,12 @@ var save = localStorage.getItem('theme');
 }
 
 // BORRAR TODO
-let todo = document.querySelector('.todo');
-todo.classList.add('todo-display');
-todo.innerHTML =
-`
-<div class="todo"></div>
-` 
-document.body.classList.toggle('sinOverflow');
+setTimeout(() => {
+    let todo = document.querySelector('.todo');
+    todo.classList.add('todo-display');
+    todo.innerHTML =
+    `
+    <div class="todo"></div>
+    ` 
+    document.body.classList.toggle('sinOverflow');
+}, 1000);
