@@ -428,7 +428,12 @@ var save = localStorage.getItem('theme');
                     `;
 
                     todo.classList.remove('todo-display');
-                    todo.style.opacity = '0.5';
+                    if(localStorage.getItem == 'dark'){
+                        todo.style.opacity = '0.2';
+                    }
+                    else {
+                        todo.style.opacity = '0.8';
+                    }
                     todo.style.zIndex = '1';
                     img.style.zIndex = '2';
                     todo.style.width = document.body.clientWidth + "px";
