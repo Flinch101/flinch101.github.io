@@ -5,7 +5,7 @@
     --color-boton-seleccionado: rgb(155, 245, 143);
     --color-texto-blanco: white;
     --color-texto-negro: black;
-    --color-boton-blanco: rgb(196, 196, 196);
+    --color-boton-blanco: #c4c4c4;
 }
 
 .sinOverflow {
@@ -31,15 +31,12 @@ button:hover {
 }
 
 .todo {
-    width: 100vw;
-    height: 100vh;
-    position: absolute;
+    width: 100%;
+    height: 100%;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 1000;
-    background-color: rgb(235,235,235);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
 }
 
 .todo-display {
@@ -54,6 +51,7 @@ html, body {
 
 body {
     background-color:var(--color-blanco);
+    transition: all .3s;
 }
 
 .container {
@@ -273,6 +271,12 @@ footer {
     color: white;
 }
 
+.dark-todo {
+    background-color: rgba(235, 235, 235, 0.2);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
 .dark-section {
     background-color: rgb(40,40,40);
 }
@@ -303,6 +307,12 @@ footer {
 
 .light {
     background-color: rgb(235,235,235);
+}
+
+.light-todo {
+    background-color: rgb(235,235,235, 0.2);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
 }
 
 /* MEDIAQUERIES ------------------------------------------------------- */

@@ -180,7 +180,6 @@ var save = localStorage.getItem('theme');
                 inputD.classList.toggle('dark-input');
                 inputD.classList.toggle('dark-pebe');
                 todo.style.backgroundColor = '';
-                todo.classList.toggle('dark');
             }
 
             let buttonTheme = document.getElementById("theme");
@@ -429,23 +428,19 @@ var save = localStorage.getItem('theme');
 
                     todo.classList.remove('todo-display');
                     if(localStorage.getItem('theme') == 'dark'){
-                        todo.style.opacity = '0.2';
+                        todo.classList.add('dark-todo');
                     }
                     else {
-                        todo.style.opacity = '0.8';
+                        todo.classList.add('light-todo');
                     }
                     todo.style.zIndex = '1';
                     img.style.zIndex = '2';
-                    todo.style.width = document.body.clientWidth + "px";
-                    todo.style.height = document.querySelector('.container').clientHeight + "px";
                 });
 
                 img.addEventListener('mouseleave', function(event) {
-                    todo.style.backgroundColor = '';
-                    img.style.transform = '';
                     todo.classList.add('todo-display');
-                    todo.style.opacity = '1';
-                    img.style.zIndex = '0';
+                    img.style = '0';
+                    todo.classList.remove('dark-todo');
                 });
             });
         }
