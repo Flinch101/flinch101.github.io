@@ -38,6 +38,8 @@ button:hover {
     left: 0;
     z-index: 1000;
     background-color: rgb(235,235,235);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 .todo-display {
