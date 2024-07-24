@@ -428,7 +428,7 @@ var save = localStorage.getItem('theme');
                     `;
 
                     todo.classList.remove('todo-display');
-                    if(localStorage.getItem == 'dark'){
+                    if(localStorage.getItem('theme') == 'dark'){
                         todo.style.opacity = '0.2';
                     }
                     else {
